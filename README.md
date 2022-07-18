@@ -1,7 +1,6 @@
 # BackgroundErrorSuppreesionforQAseq
 Recording of the background polishing for QAseq 
 
-
 **createBED.sh**
 
 Create a bed file based on the output of QAseq pipeline
@@ -14,10 +13,22 @@ After making the bed file, use the iDES software to convert bed files created by
 
 See the official document for iDES: https://aalab.stanford.edu/ides/download.php#fileConversion
 
-
 **QAseq_MRD.py**
 
 Extract mutation information of designed sites from official QAseq pipeline outcome. Two extra sheets, "MRD" and "MRD_error",  will be made. Some parameters like input path need change, and the script is run locally. Download the mutation directory from the server before running this script.
 
+**FREQfileCreate.py**
 
+Use the QAseq pipeline outputs to create FREQ files on UMI level. This script can be used to make either input samples of iDES or a UMI-level database's FREQ files.
 
+**QASeq_FreqAnnotation.py**
+
+Convert background polishing freq results to easy-reading excel format. Yellow cells stand for the variant type consistent with the design sites, and pink cells correspond to error sites left by the iDES polishing model.
+
+**iDES-freqModification.py**
+
+The original FREQ files created from bam files contain all sites informations, including undesigned sites. Use this script to modify the read level backgrounf database FREQ files, and only retain the design sites' information.
+
+**errorRateDataFrameCreate.py**
+
+Use this script to get summary about error signals in either pre-polished or polished databases FREQ files.
