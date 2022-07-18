@@ -2,6 +2,7 @@
 Recording of the background polishing for QAseq 
 
 **createBED.sh**
+
 Create a bed file based on the output of QAseq pipeline
 
 ```
