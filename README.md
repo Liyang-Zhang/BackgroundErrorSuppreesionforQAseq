@@ -31,4 +31,4 @@ The original FREQ files created from bam files contain all sites informations, i
 
 **errorRateDataFrameCreate.py**
 
-Use this script to get summary about error signals in either pre-polished or polished databases FREQ files.
+Use this script to get a summary about error signals in either pre-polished or polished databases FREQ files.
