@@ -24,17 +24,17 @@ reference for AAABAC: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard
 reference for AGAHAJ: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AH\\81-AGAHAJ-reference.xlsx
 '''
 # Specify working dir 
-working_dir="C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\AGAHAJ\\UMIdb\\freq"
+working_dir="C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\AAABAC\\UMIdb\\db"
 os.chdir(working_dir)
 
 
 # Specify reference and design table
-reference_file = "C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AH\\81-AGAHAJ-reference.xlsx"
-design_file = "C:\\Users\\admin\\Documents\\MRD\\standarddata\\standards_3rd\\design_R0254681.xlsx"
+reference_file = "C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AA\\79-AAABAC-reference.xlsx"
+design_file = "C:\\Users\\admin\\Documents\\MRD\\standarddata\\standards_3rd\\design_R0254679.xlsx"
 
 # Go through each file in mutation and depth file
 # Specify base name!
-base = "81-NC"
+base = "79-NC"
 mut_files = "C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\" + base +"\\*_varlist.xlsx"
 fileNames=[]
 for file in glob.glob(mut_files):
