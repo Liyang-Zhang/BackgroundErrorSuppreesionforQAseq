@@ -32,3 +32,7 @@ The original FREQ files created from bam files contain all sites informations, i
 **errorRateDataFrameCreate.py**
 
 Use this script to get a summary about error signals in either pre-polished or polished databases FREQ files.
+
+**MRDErrorRateHeatmap.R**
+
+Followed by *errorRateDataFrameCreate.py*, use this script to visualize the error rate dataframe with heatmap.
