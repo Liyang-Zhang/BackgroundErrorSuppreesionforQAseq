@@ -39,4 +39,4 @@ Followed by *errorRateDataFrameCreate.py*, use this script to visualize the erro
 
 **iDES_polishing_example.R**
 
-Sometimes, there are some werrid sites in the iDES polishing result. This script is used to model the calculation procedure of iDES model.
+Sometimes, there are some werid sites in the iDES polishing result. This script is used to model the calculation procedure of iDES model.
