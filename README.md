@@ -15,11 +15,11 @@ See the official document for iDES: https://aalab.stanford.edu/ides/download.php
 
 **QAseq_MRD.py**
 
-Extract mutation information of designed sites from official QAseq pipeline outcome. Two extra sheets, "MRD" and "MRD_error",  will be made. Some parameters like input path need change, and the script is run locally. Download the mutation directory from the server before running this script.
+Extract mutation information of designed sites from official QAseq pipeline outcome. Two extra sheets, "MRD" and "MRD_error",  will be made. Some parameters like input paths need change, and the script is run locally. Download the mutation directory from the server before running this script.
 
 **FREQfileCreate.py**
 
-Use the QAseq pipeline outputs to create FREQ files on UMI level. This script can be used to make either input samples of iDES or a UMI-level database's FREQ files.
+Use the QAseq pipeline outputs to create FREQ files on UMI level. This script can be used to make either input samples of iDES or FREQ files for UMI-level database.
 
 **QASeq_FreqAnnotation.py**
 
