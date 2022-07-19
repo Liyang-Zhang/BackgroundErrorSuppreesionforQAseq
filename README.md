@@ -36,3 +36,7 @@ Use this script to get a summary about error signals in either pre-polished or p
 **MRDErrorRateHeatmap.R**
 
 Followed by *errorRateDataFrameCreate.py*, use this script to visualize the error rate dataframe with heatmap.
+
+**iDES_polishing_example.R**
+
+Sometimes, there are some werrid sites in the iDES polishing result. This script is used to model the calculation procedure of iDES model.
