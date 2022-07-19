@@ -10,11 +10,11 @@ import os
 import glob
 
 # Specify output dir 
-working_dir="C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\KLM\\UMIdb\\db\\report"
+working_dir="C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\ABC\\leaveOneOut_12UMIdb\\errorrate"
 os.chdir(working_dir)
 
 # Specify working files
-working_files = "C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\KLM\\UMIdb\\db\\1-75*.txt"
+working_files = "C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\errorSuppression\\ABC\\leaveOneOut_12UMIdb\\1-73*.txt"
 fileNames=[]
 for file in glob.glob(working_files):
     fileNames.append(file)
@@ -58,7 +58,7 @@ for working_file in fileNames:
         out_dict[sampleID][value] = 100 * out_dict[sampleID][value]/depth
         
 out_df = pd.DataFrame(out_dict)
-out_name = "75-NC_errorRate_prepolish.txt"
+out_name = "73-NC_errorRate_leaveOneOut.txt"
 out_df.to_csv(out_name, sep = "\t", index = True)
 
         
