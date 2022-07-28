@@ -1,45 +1,30 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 18 12:59:24 2022
-
-@author: Liyang Zhang
-Usage: get varinat information on target sites from mutation excels
-Input: several excel files with one excel as reference:
-Output: another sheet for each sample mutation excel
-"""
-
-'''
-reference for ABC: C:\\Users\\admin\\documents\\MRD\\standardResult\\new_design_3_21\\mutation\\H-1-reference.xlsx
-reference for KLM: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\K\\254676_KLM_reference.xlsx
-reference for DEF: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\F\\254674_DEF_reference.xlsx
-reference for NPQ: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\N\\254677_NPQ_reference.xlsx
-reference for RST: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\R\\254678_RST_reference.xlsx
-reference for GHJ: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\H\\254675_GHJ_reference.xlsx
-reference for AAABAC: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AA\\79-AAABAC-reference.xlsx
-reference for ADAEAF: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AD\\80-ADAEAF-reference.xlsx
-reference for AGAHAJ: C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\AH\\81-AGAHAJ-reference.xlsx
-'''
-
 import pandas as pd
 import os
 from pandas.core.frame import DataFrame
 import openpyxl
 import glob
+import argparse
+
+"""
+Usage: get varinat information on target sites from mutation excels
+Input: several excel files with one excel as reference:
+Output: another sheet for each sample mutation excel
+"""
 
 def extract_mutation(input_path: str, sample_name: str):
-    #working_dir="C:\\Users\\admin\\documents\\MRD\\standardResult\\standard_3rdtrial\\mutation\\78-NC"
     mutation_path = input_path + "/mutation"
+    print("mutation files in: "+mutation_path)
     os.chdir(mutation_path)
-    ref_path = input_path + "/reference"
-    ref_file = glob.glob(ref_path)
+    ref_path = input_path + "/reference/*"
+    ref_file = glob.glob(ref_path)[0]
+    print("the reference file is: "+ref_file)
     fileNames=[]
     sample_file = mutation_path + "/" + "*-" + sample_name + "*varlist.xlsx"
     for file in glob.glob(sample_file):
         fileNames.append(file)
     
     for working_file in fileNames:
-        # working_file="1-C1_varlist.xlsx"
-        
+        print("working on: "+working_file)
         xls_ref = pd.ExcelFile(ref_file)
         df_ref = pd.read_excel(xls_ref, 'final')
         df_ref.rename(columns={"Unnamed: 0":"index"}, inplace=True)
@@ -94,3 +79,17 @@ def extract_mutation(input_path: str, sample_name: str):
             if "MRD_error" not in writer.sheets:
                 MRD_error_df.to_excel(writer, sheet_name="MRD_error")
             """
+
+if __name__=='__main__':
+        parser = argparse.ArgumentParser(description='the unmapped reads blat with hg38')
+        parser.add_argument('-i', '--inputpath', type=str, help='the path of lane')
+        parser.add_argument('-s', '--samplename', type=str, help='the sample ID name')
+        parser.add_argument('-t', '--Thread1', type=int, help='Thread count')
+        args = parser.parse_args()
+        Inputpath = args.inputpath
+        Samplename = args.samplename
+        Thread1=args.Thread1
+        if not Thread1:
+                Thread1=5
+        extract_mutation(Inputpath,Samplename)
+
